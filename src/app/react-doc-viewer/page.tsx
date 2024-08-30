@@ -1,14 +1,16 @@
 "use client";
 
 import React from "react";
-import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
+// import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 
-// import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
-// import "@cyntler/react-doc-viewer/dist/index.css";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import "@cyntler/react-doc-viewer/dist/index.css";
 
 // https://www.npmjs.com/package/@cyntler/react-doc-viewer
 // https://www.npmjs.com/package/react-doc-viewer
 // https://github.com/Alcumus/react-doc-viewer/issues/72
+
+
 const Home = () => {
   const docs = [
     {
@@ -21,7 +23,15 @@ const Home = () => {
       // uri: "/Employer-Consent-Letter.pdf"
     },
     {
+      uri: "/Employer-Consent-Letter.pdf",
+      fileType: "pdf",
+    },
+    {
       uri: "https://doc-viewer-app.vercel.app/TESTDocument.docx",
+      fileType: "docx",
+    },
+    {
+      uri: "/TESTDocument.docx",
       fileType: "docx",
     },
     {
