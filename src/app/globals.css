@@ -105,3 +105,10 @@ a {
     color-scheme: dark;
   }
 }
+
+.test-class {
+  .fBdFME {
+    width: 100%;
+    height: 100vh;
+  }
+}
