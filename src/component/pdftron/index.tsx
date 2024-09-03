@@ -8,10 +8,7 @@ export default function PdfTronViewer() {
   const initialized = useRef(false); // To track initialization
 
   useEffect(() => {
-    if (
-      !initialized.current &&
-      viewer.current
-    ) {
+    if (!initialized.current && viewer.current) {
       import("@pdftron/webviewer").then(() => {
         WebViewer(
           {
@@ -26,7 +23,7 @@ export default function PdfTronViewer() {
           },
           viewer.current as HTMLDivElement
           // document.getElementById('viewer')
-        ).then( (instance: WebViewerInstance) => {
+        ).then((instance: WebViewerInstance) => {
           instance.UI.enableFeatures([instance.UI.Feature.ContentEdit]);
           // const { docViewer } = instance;
           // You can now call WebViewer APIs here...
@@ -40,7 +37,10 @@ export default function PdfTronViewer() {
   }, []);
 
   return (
-    <div className="MyComponent" style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+    <div
+      className="MyComponent"
+      style={{ height: "100vh", display: "flex", flexDirection: "column" }}
+    >
       <div
         style={{
           display: "flex",
