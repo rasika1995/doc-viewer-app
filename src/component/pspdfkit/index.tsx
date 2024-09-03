@@ -1,7 +1,7 @@
 // https://pspdfkit.com/getting-started/web/?frontend=nextjs&project=existing-project
 
 "use client";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 const PSPDFKIT: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -9,22 +9,22 @@ const PSPDFKIT: React.FC = () => {
   useEffect(() => {
     const container = containerRef.current;
 
-    if (container && typeof window !== 'undefined') {
-      import('pspdfkit').then((PSPDFKit) => {
+    if (container && typeof window !== "undefined") {
+      import("pspdfkit").then((PSPDFKit: any) => {
         if (PSPDFKit) {
           PSPDFKit.unload(container);
         }
 
         PSPDFKit.load({
           container,
-          document: '/TestDocument.docx',
+          document: "/TestDocument.docx",
           baseUrl: `${window.location.protocol}//${window.location.host}/`,
         });
       });
     }
   }, []);
 
-  return <div ref={containerRef} style={{ height: '100vh' }} />;
+  return <div ref={containerRef} style={{ height: "100vh" }} />;
 };
 
 export default PSPDFKIT;
