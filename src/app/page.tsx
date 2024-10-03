@@ -28,12 +28,6 @@ function HomePage() {
       >
         <button
           style={{ padding: "10px" }}
-          onClick={() => router.push("/only-office")}
-        >
-          Load ONLY OFFICE Document Viewer
-        </button>
-        <button
-          style={{ padding: "10px" }}
           onClick={() => router.push("/react-doc-viewer")}
         >
           Load React Doc Viewer
@@ -44,6 +38,13 @@ function HomePage() {
         >
           Load Office View
         </button>
+        <button
+          style={{ padding: "10px" }}
+          onClick={() => router.push("/only-office")}
+        >
+          Load ONLY OFFICE Document Viewer
+        </button>
+
         <button
           style={{ padding: "10px" }}
           onClick={() => router.push("/pdftron")}

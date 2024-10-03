@@ -1,57 +1,88 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import WebViewer, { WebViewerInstance } from "@pdftron/webviewer";
-import { useEffect, useRef } from "react";
 
-// https://docs.apryse.com/documentation/web/get-started/nextjs/
-export default function PdfTronViewer() {
-  const viewer = useRef<HTMLDivElement | null>(null);
-  const initialized = useRef(false); // To track initialization
+const PdfTronViewer: React.FC = () => {
+  const viewerContainerRef = useRef<HTMLDivElement | null>(null);
+  const instanceRef = useRef<WebViewerInstance | null>(null); // Track WebViewer instance
+  const [currentIndex, setCurrentIndex] = useState(0); // Track the current document index
+
+  // Array of document URLs
+  const documents = [
+    "/Portfolio.pptx",
+    "/Employer-Consent-Letter.pdf",
+    "/To-do list.xlsx",
+    "/TESTDocument.docx",
+  ];
 
   useEffect(() => {
-    if (!initialized.current && viewer.current) {
-      import("@pdftron/webviewer").then(() => {
-        WebViewer(
-          {
-            path: "/lib", // Ensure this path is correct
-            // licenseKey: "YOUR_LICENSE_KEY", // Uncomment and set your license key if needed
-            initialDoc: "/TESTDocument.docx",
-            enableOfficeEditing: true, //https://docs.apryse.com/documentation/web/guides/office/edit-docx-file/
-            // initialDoc: "/To-do list.xlsx",
-            // initialDoc: "/Employer-Consent-Letter.pdf",
-            // initialDoc: "/Portfolio.pptx",
-            // initialDoc: "https://docs.google.com/document/d/1pVBR9g_wrDJP3ALTarzSIOw0tTfUE8aHq1NMZ_M250w",
-          },
-          viewer.current as HTMLDivElement
-          // document.getElementById('viewer')
-        ).then((instance: WebViewerInstance) => {
+    const container = viewerContainerRef.current;
+
+    if (container && typeof window !== "undefined") {
+      // Initialize WebViewer only once on initial load
+      WebViewer(
+        {
+          path: "/lib", // Ensure this path is correct
+          licenseKey: process.env.NEXT_REACT_APP_TRIAL_KEY, // Add your license key if needed
+          initialDoc: documents[currentIndex], // Load the current document
+          enableOfficeEditing: true,
+        },
+        container as HTMLDivElement
+      )
+        .then((instance: WebViewerInstance) => {
+          instanceRef.current = instance;
+          instance.UI.loadDocument(documents[currentIndex]); // Load the initial document
           instance.UI.enableFeatures([instance.UI.Feature.ContentEdit]);
-          // const { docViewer } = instance;
-          // You can now call WebViewer APIs here...
-          // docViewer.on('documentLoaded', () => {
-          //   console.log('Document loaded');
-          // });
+        })
+        .catch((error) => {
+          console.error("Error initializing WebViewer:", error);
         });
-      });
-      initialized.current = true; // Mark as initialized
     }
-  }, []);
+
+    return () => {
+      // Cleanup the WebViewer instance when unmounting
+      if (instanceRef.current) {
+        instanceRef.current.UI.dispose();
+        instanceRef.current = null;
+      }
+    };
+  }, []); // Run this effect only once on initial load
+
+  useEffect(() => {
+    // Load a new document when the currentIndex changes
+    if (instanceRef.current) {
+      instanceRef.current.UI.loadDocument(documents[currentIndex]);
+    }
+  }, [currentIndex]); // Re-run effect when currentIndex changes
+
+  const handleNext = () => {
+    if (currentIndex < documents.length - 1) {
+      setCurrentIndex(currentIndex + 1); // Move to the next document
+    }
+  };
+
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1); // Move to the previous document
+    }
+  };
 
   return (
-    <div
-      className="MyComponent"
-      style={{ height: "100vh", display: "flex", flexDirection: "column" }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "10px", // Optional padding
-        }}
-      >
-        React Viewer
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", padding: "10px" }}>
+        <button onClick={handleBack} disabled={currentIndex === 0}>
+          Back
+        </button>
+        <button
+          onClick={handleNext}
+          disabled={currentIndex === documents.length - 1}
+        >
+          Next
+        </button>
       </div>
-      <div className="webviewer" ref={viewer} style={{ flex: 1 }}></div>
+      <div ref={viewerContainerRef} style={{ flex: 1 }}></div>
     </div>
   );
-}
+};
+
+export default PdfTronViewer;
