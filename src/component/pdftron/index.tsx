@@ -15,7 +15,7 @@ const PdfTronViewer: React.FC = () => {
     "/TESTDocument.docx",
   ];
 
-  console.log(process.env.NEXT_REACT_APP_TRIAL_KEY);
+  console.log(process.env.NEXT_PUBLIC_PDFTRON_LICENSE_KEY);
   useEffect(() => {
     const container = viewerContainerRef.current;
 
@@ -24,7 +24,7 @@ const PdfTronViewer: React.FC = () => {
       WebViewer(
         {
           path: "/lib", // Ensure this path is correct
-          licenseKey: process.env.NEXT_REACT_APP_TRIAL_KEY, // Add your license key if needed
+          licenseKey: process.env.NEXT_PUBLIC_PDFTRON_LICENSE_KEY, // Add your license key if needed
           initialDoc: documents[currentIndex], // Load the current document
           enableOfficeEditing: true,
         },
