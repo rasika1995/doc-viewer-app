@@ -15,6 +15,7 @@ const PdfTronViewer: React.FC = () => {
     "/TESTDocument.docx",
   ];
 
+  console.log(process.env.NEXT_REACT_APP_TRIAL_KEY);
   useEffect(() => {
     const container = viewerContainerRef.current;
 
