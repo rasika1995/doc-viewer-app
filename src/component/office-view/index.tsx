@@ -19,6 +19,7 @@ const DocumentViewer = ({ documentUrl }: any) => {
 const OfficeView = () => {
   // const documentUrl = "https://doc-viewer-app.vercel.app/TESTDocument.docx";
   // const documentUrl = 'https://doc-viewer-app.vercel.app/To-do list.xlsx';
+  // const documentUrl = "https://doc-viewer-app.vercel.app/Employer-Consent-Letter.pdf";
   const documentUrl = "https://doc-viewer-app.vercel.app/Portfolio.pptx";
 
   return <DocumentViewer documentUrl={documentUrl} />;

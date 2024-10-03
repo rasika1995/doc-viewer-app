@@ -12,6 +12,7 @@ const ReactDocViewer = () => {
   const docs = [
     {
       uri: "https://doc-viewer-app.vercel.app/Employer-Consent-Letter.pdf",
+      // uri: "./Employer-Consent-Letter.pdf",
       fileType: "pdf",
     },
     {
@@ -30,18 +31,18 @@ const ReactDocViewer = () => {
       uri: "https://doc-viewer-app.vercel.app/sample.txt",
       fileType: "txt",
     },
-    {
-      uri: "https://sample-videos.com/xls/Sample-Spreadsheet-10-rows.xls",
-      fileType: "xls",
-    },
-    {
-      uri: "https://calibre-ebook.com/downloads/demos/demo.docx",
-      fileType: "docx",
-    },
-    {
-      uri: "https://sample-videos.com/ppt/Sample-PPT-File-500kb.ppt",
-      fileType: "ppt",
-    },
+    // {
+    //   uri: "https://sample-videos.com/xls/Sample-Spreadsheet-10-rows.xls",
+    //   fileType: "xls",
+    // },
+    // {
+    //   uri: "https://calibre-ebook.com/downloads/demos/demo.docx",
+    //   fileType: "docx",
+    // },
+    // {
+    //   uri: "https://sample-videos.com/ppt/Sample-PPT-File-500kb.ppt",
+    //   fileType: "ppt",
+    // },
   ];
 
   return (

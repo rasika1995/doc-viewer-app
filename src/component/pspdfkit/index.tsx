@@ -17,7 +17,10 @@ const PSPDFKIT: React.FC = () => {
 
         PSPDFKit.load({
           container,
-          document: "/TestDocument.docx",
+          // document: "/TestDocument.docx",
+          document: "/Portfolio.pptx",
+          // document: "/To-do list.xlsx",
+          // document: "/Employer-Consent-Letter.pdf",
           baseUrl: `${window.location.protocol}//${window.location.host}/`,
         });
       });
