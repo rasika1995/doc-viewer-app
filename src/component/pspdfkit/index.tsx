@@ -8,7 +8,7 @@ const PSPDFKIT: React.FC = () => {
   // Array of document URLs
   const documents = [
     "/Portfolio.pptx",
-    "/TestDocument.docx",
+    "/TESTDocument.docx",
     "/To-do list.xlsx",
     "/Employer-Consent-Letter.pdf",
   ];
