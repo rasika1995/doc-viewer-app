@@ -36,7 +36,7 @@ function HomePage() {
           style={{ padding: "10px" }}
           onClick={() => router.push("/office-view")}
         >
-          Load Office View
+          Load Document Viewer with Iframe
         </button>
         <button
           style={{ padding: "10px" }}

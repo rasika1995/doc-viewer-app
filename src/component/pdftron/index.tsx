@@ -15,7 +15,6 @@ const PdfTronViewer: React.FC = () => {
     "/TESTDocument.docx",
   ];
 
-  console.log(process.env.NEXT_PUBLIC_PDFTRON_LICENSE_KEY);
   useEffect(() => {
     const container = viewerContainerRef.current;
 
