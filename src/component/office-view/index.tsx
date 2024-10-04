@@ -37,7 +37,6 @@ const DocumentViewer = ({ documentUrl }: { documentUrl: string }) => {
 
 const OfficeView = () => {
   const documents = [
-    "https://alliontech-my.sharepoint.com/:w:/g/personal/rasikap_alliontechnologies_com/EWqrdFLUtbpGt4fTu6vcwGEByZormO7yPlLJhwUdd0MBhQ?e=ZvTUg9",
     "https://docs.google.com/document/d/16viR_ME_4IoU_NXaZbH51scMv718c7HDFJJf7iThh_Y/edit?usp=sharing",
     "https://alliontech-my.sharepoint.com/:w:/g/personal/rasikap_alliontechnologies_com/EeN_YHmvYs9ElCRnIIE_UeEByFQ8WCFAEVtTWupZ943sow?e=LlmTjh",
     "https://doc-viewer-app.vercel.app/Portfolio.pptx",
