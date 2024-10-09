@@ -57,12 +57,12 @@ function HomePage() {
         >
           Load PSPDFKit
         </button>
-        <button
+        {/* <button
           style={{ padding: "10px" }}
           onClick={() => router.push("/syncfusion-editor")}
         >
           Load Syncfusion Editor
-        </button>
+        </button> */}
       </div>
     </div>
   );
