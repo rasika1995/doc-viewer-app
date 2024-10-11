@@ -9,16 +9,16 @@ const PdfTronViewer: React.FC = () => {
 
   // Array of document URLs
   const documents = [
+    "/Portfolio.pptx",
+    "/Employer-Consent-Letter.pdf",
+    "/To-do list.xlsx",
+    "/TESTDocument.docx",
     "/AWS Overview Notes.docx",
     "/pkpadmin,+408-2146-1-CE.pdf",
     "https://doc-viewer-app.vercel.app/file-sample_100kB.doc",
     "https://doc-viewer-app.vercel.app/file-sample_1MB.docx",
     "https://doc-viewer-app.vercel.app/15-MB-docx-file-download.docx",
     "https://doc-viewer-app.vercel.app/AWS Overview Notes.docx",
-    "/Portfolio.pptx",
-    "/Employer-Consent-Letter.pdf",
-    "/To-do list.xlsx",
-    "/TESTDocument.docx",
   ];
 
   useEffect(() => {
