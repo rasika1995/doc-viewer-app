@@ -7,6 +7,10 @@ const PSPDFKIT: React.FC = () => {
 
   // Array of document URLs
   const documents = [
+    "https://doc-viewer-app.vercel.app/file-sample_100kB.doc",
+    "https://doc-viewer-app.vercel.app/file-sample_1MB.docx",
+    "https://doc-viewer-app.vercel.app/15-MB-docx-file-download.docx",
+    "https://doc-viewer-app.vercel.app/AWS Overview Notes.docx",
     "/Portfolio.pptx",
     "/TESTDocument.docx",
     "/To-do list.xlsx",

@@ -36,44 +36,54 @@ const OnlyOffice = () => {
   // Define the document configuration
   // https://api1.onlyoffice.com/editors/config/document
   const documents: DocumentConfig[] = [
-    
     {
       fileType: "docx",
       key: "file-sample_100kB",
-      title: "Test Document",
+      title: "file-sample_100kB",
       url: "https://doc-viewer-app.vercel.app/file-sample_100kB.doc",
     },
-
     {
       fileType: "docx",
       key: "file-sample_1MB",
-      title: "Test Document",
+      title: "file-sample_1MB",
       url: "https://doc-viewer-app.vercel.app/file-sample_1MB.docx",
     },
-    // {
-    //   fileType: "xlsx",
-    //   key: "sample-test-key-gc-1",
-    //   title: "To-do List",
-    //   url: "https://doc-viewer-app.vercel.app/To-do%20list.xlsx",
-    // },
-    // {
-    //   fileType: "pptx",
-    //   key: "apiwh1e490e07-bcab-469a-801b-5e0af8faa3a27",
-    //   title: "Portfolio Presentation",
-    //   url: "https://doc-viewer-app.vercel.app/Portfolio.pptx",
-    // },
-    // {
-    //   fileType: "docx",
-    //   key: "key-docx-155",
-    //   title: "Test Document",
-    //   url: "https://doc-viewer-app.vercel.app/TESTDocument.docx",
-    // },
-    // {
-    //   fileType: "pdf",
-    //   key: "key-pdf",
-    //   title: "Employer Consent Letter",
-    //   url: "https://doc-viewer-app.vercel.app/Employer-Consent-Letter.pdf",
-    // },
+    {
+      fileType: "docx",
+      key: "file-sample_15MB",
+      title: "file-sample_15MB",
+      url: "https://doc-viewer-app.vercel.app/15-MB-docx-file-download.docx",
+    },
+    {
+      fileType: "docx",
+      key: "AWS Overview Notes",
+      title: "AWS Overview Notes.docx",
+      url: "https://doc-viewer-app.vercel.app/AWS Overview Notes.docx",
+    },
+    {
+      fileType: "xlsx",
+      key: "sample-test-key-gc-1",
+      title: "To-do List",
+      url: "https://doc-viewer-app.vercel.app/To-do%20list.xlsx",
+    },
+    {
+      fileType: "pptx",
+      key: "apiwh1e490e07-bcab-469a-801b-5e0af8faa3a27",
+      title: "Portfolio Presentation",
+      url: "https://doc-viewer-app.vercel.app/Portfolio.pptx",
+    },
+    {
+      fileType: "docx",
+      key: "key-docx-155",
+      title: "Test Document",
+      url: "https://doc-viewer-app.vercel.app/TESTDocument.docx",
+    },
+    {
+      fileType: "pdf",
+      key: "key-pdf",
+      title: "Employer Consent Letter",
+      url: "https://doc-viewer-app.vercel.app/Employer-Consent-Letter.pdf",
+    },
   ];
 
   const docConfig = documents[currentIndex]; // Get the current document configuration
