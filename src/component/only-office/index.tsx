@@ -6,7 +6,7 @@ import { DocumentEditor } from "@onlyoffice/document-editor-react";
 // https://github.com/ONLYOFFICE/CommunityServer
 // https://github.com/ONLYOFFICE/Docker-CommunityServer
 
-type DocumentFileType = "xlsx" | "pptx" | "docx" | "pdf";
+type DocumentFileType = "xlsx" | "pptx" | "docx" | "pdf" | "doc";
 
 interface DocumentConfig {
   fileType: DocumentFileType;
@@ -36,17 +36,19 @@ const OnlyOffice = () => {
   // Define the document configuration
   // https://api1.onlyoffice.com/editors/config/document
   const documents: DocumentConfig[] = [
+    
     {
       fileType: "docx",
       key: "file-sample_100kB",
       title: "Test Document",
-      url: "http://localhost:3000/file-sample_100kB.docx",
+      url: "https://doc-viewer-app.vercel.app/file-sample_100kB.doc",
     },
+
     {
       fileType: "docx",
       key: "file-sample_1MB",
       title: "Test Document",
-      url: "http://localhost:3000/file-sample_1MB.docx",
+      url: "https://doc-viewer-app.vercel.app/file-sample_1MB.docx",
     },
     // {
     //   fileType: "xlsx",
@@ -89,6 +91,7 @@ const OnlyOffice = () => {
     xlsx: "cell",
     pptx: "slide",
     docx: "word",
+    doc: "word",
     pdf: "pdf",
   };
   return (
